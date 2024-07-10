@@ -108,11 +108,6 @@
 
 
 
-<br/>  
-
-<div align="center"><img src="https://rishavanand.github.io/static/images/spotify-readme-example.svg" /></div>  
-
-
 
 <div align="center">
             <a href="https://paypal.me/tahahamdy31" target="_blank" style="display: inline-block;">
