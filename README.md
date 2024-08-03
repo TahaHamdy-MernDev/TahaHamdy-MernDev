@@ -5,11 +5,9 @@
 
 ### <div align="center">I'm Taha a Mern-stack freelance developer 👨‍💻 working remotely since 2023 🚀</div>  
   
-
-- 🔭 I’m currently working on coldwell (https://github.com/TahaHamdy-MernDev/cold-well-banker)  
   
 
-- 🌱 I’m currently learning Nextjs  
+- 🌱 I’m currently learning Nextjs  and Nestjs
   
 
 - ❓ Ask me about anything related to MERN stack and related technologies  
