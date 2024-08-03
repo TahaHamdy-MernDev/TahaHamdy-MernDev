@@ -3,7 +3,8 @@
 </div>  
   
 
-### <div align="center">I'm Taha a Mern-stack freelance developer 👨‍💻 working remotely since 2023 🚀</div>  
+### <div align="center">I'm Taha a Mern-stack freelance developer 👨‍💻
+working remotely since 2023 🚀</div>  
   
   
 
