@@ -12,28 +12,28 @@ I focus on building real-world products: **SaaS platforms, admin dashboards, e-c
 
 ---
 
-## 🚀 About Me
+##  About Me
 
 I'm a Full-Stack Developer who enjoys turning business ideas into clean, scalable, and production-ready applications.
 
 My work combines strong frontend implementation with solid backend architecture. I care about writing maintainable code, designing clean APIs, improving performance, and building systems that are easy to scale and extend.
 
-- 💻 Full-Stack Developer working with **Next.js, React, NestJS, Node.js, and TypeScript**
-- ⚙️ Experienced in building **dashboards, SaaS platforms, e-commerce systems, and admin panels**
-- 🔗 Comfortable with **third-party integrations, webhooks, shipping systems, and order management flows**
-- 🧠 Currently improving in **GraphQL, testing, and system design**
-- 🚀 Focused on **clean architecture, performance, SEO, and scalable backend systems**
+-  Full-Stack Developer working with **Next.js, React, NestJS, Node.js, and TypeScript**
+-  Experienced in building **dashboards, SaaS platforms, e-commerce systems, and admin panels**
+-  Comfortable with **third-party integrations, webhooks, shipping systems, and order management flows**
+-  Currently improving in **GraphQL, testing, and system design**
+-  Focused on **clean architecture, performance, SEO, and scalable backend systems**
 
 ---
 
-## 🧠 Developer Profile
+##  Developer Profile
 
 <div align="center">
 
 <table>
   <tr>
     <td align="center" width="33%">
-      <h3>🎨 Frontend</h3>
+      <h3> Frontend</h3>
       <p>
         Next.js • React • TypeScript<br />
         Tailwind CSS • Shadcn UI<br />
@@ -41,7 +41,7 @@ My work combines strong frontend implementation with solid backend architecture.
       </p>
     </td>
     <td align="center" width="33%">
-      <h3>⚙️ Backend</h3>
+      <h3> Backend</h3>
       <p>
         NestJS • Node.js • Express.js<br />
         Fastify • REST APIs<br />
@@ -49,7 +49,7 @@ My work combines strong frontend implementation with solid backend architecture.
       </p>
     </td>
     <td align="center" width="33%">
-      <h3>🗄️ Database</h3>
+      <h3> Database</h3>
       <p>
         PostgreSQL • MySQL • MongoDB<br />
         Prisma • TypeORM<br />
@@ -59,7 +59,7 @@ My work combines strong frontend implementation with solid backend architecture.
   </tr>
   <tr>
     <td align="center" width="33%">
-      <h3>🚀 Deployment</h3>
+      <h3> Deployment</h3>
       <p>
         DigitalOcean • Vercel<br />
         Nginx • GitHub Actions<br />
@@ -67,7 +67,7 @@ My work combines strong frontend implementation with solid backend architecture.
       </p>
     </td>
     <td align="center" width="33%">
-      <h3>📌 Current Focus</h3>
+      <h3> Current Focus</h3>
       <p>
         GraphQL Architecture<br />
         Testing & Quality Assurance<br />
@@ -75,7 +75,7 @@ My work combines strong frontend implementation with solid backend architecture.
       </p>
     </td>
     <td align="center" width="33%">
-      <h3>💼 Product Areas</h3>
+      <h3> Product Areas</h3>
       <p>
         SaaS • Dashboards<br />
         E-commerce • APIs<br />
@@ -89,7 +89,7 @@ My work combines strong frontend implementation with solid backend architecture.
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ### Frontend
 
@@ -136,7 +136,7 @@ My work combines strong frontend implementation with solid backend architecture.
 
 ---
 
-## 💼 What I Build
+##  What I Build
 
 | Area | What I Can Build |
 |---|---|
@@ -149,7 +149,7 @@ My work combines strong frontend implementation with solid backend architecture.
 
 ---
 
-## 🎯 Current Focus
+##  Current Focus
 
 <div align="center">
 
@@ -170,7 +170,7 @@ My work combines strong frontend implementation with solid backend architecture.
 
 ---
 
-## 📊 GitHub Analytics
+##  GitHub Analytics
 
 <div align="center">
 
@@ -197,7 +197,7 @@ My work combines strong frontend implementation with solid backend architecture.
 
 ---
 
-## ✍️ Random Dev Quote
+##  Random Dev Quote
 
 <div align="center">
 
@@ -210,7 +210,7 @@ My work combines strong frontend implementation with solid backend architecture.
 
 ---
 
-## 🧩 Engineering Values
+##  Engineering Values
 
 <div align="center">
 
