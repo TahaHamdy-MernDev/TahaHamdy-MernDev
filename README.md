@@ -164,17 +164,23 @@ Clean Code & Maintainability
 
 ## 📊 GitHub Analytics
 
+
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=TahaHamdy-MernDev&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true" height="170" />
+  <img 
+    src="https://github-readme-stats.vercel.app/api?username=TahaHamdy-MernDev&show_icons=true&theme=tokyonight&hide_border=true" 
+    alt="Taha Hamdy GitHub Stats" 
+    height="170"
+  />
 
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=TahaHamdy-MernDev&layout=compact&theme=tokyonight&hide_border=true" height="170" />
-
-<br />
-
-<img src="https://nirzak-streak-stats.vercel.app/?user=TahaHamdy-MernDev&theme=tokyonight&hide_border=true" />
+  <img 
+    src="https://github-readme-stats.vercel.app/api/top-langs/?username=TahaHamdy-MernDev&layout=compact&theme=tokyonight&hide_border=true" 
+    alt="Taha Hamdy Most Used Languages" 
+    height="170"
+  />
 
 </div>
+
 
 ---
 
