@@ -21,7 +21,7 @@ Building scalable SaaS platforms, event-driven backends, and data-dense dashboar
     <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
   </a>
   &nbsp;
-  <a href="#" target="_blank">
+  <a href="https://taha-hamdy.vercel.app" target="_blank">
     <img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=aboutdotme&logoColor=white" alt="Portfolio" />
   </a>
 </p>
@@ -43,11 +43,11 @@ I am a Full-Stack Engineer who turns product requirements into scalable, product
 
 ## 🚀 Featured Systems & Projects
 
-| Project | Overview & Problem Solved | Key Architectural Highlights | Tech Stack & Links |
+| Project | Overview & Problem Solved | Key Architectural Highlights | Tech Stack & Repository |
 | :--- | :--- | :--- | :--- |
-| **SaaS Management & Billing Platform** | Multi-tenant SaaS engine handling subscription lifecycles, automated invoicing, and role-based client workspaces. | • Multi-tenant data segregation<br/>• Idempotent webhook handling for billing events<br/>• Optimistic state synchronization | `Next.js` `NestJS` `PostgreSQL` `Prisma`<br/>[Live Demo](#) • [Repository](#) |
-| **E-Commerce Order & Logistics Engine** | High-throughput storefront system with cart reservations, multi-stage checkout flows, and courier webhook synchronization. | • Atomic transactional inventory locking<br/>• Background queue processing for order status transitions<br/>• Edge caching for product catalogs | `React` `Node.js` `Tailwind CSS` `PostgreSQL`<br/>[Live Demo](#) • [Repository](#) |
-| **Enterprise Telemetry & Operations Portal** | Centralized back-office portal providing granular RBAC permissions, audit logging, and live operational analytics. | • Role-Based Access Control (RBAC) engine<br/>• High-density virtualized data grids<br/>• Server-Sent Events (SSE) for real-time activity streams | `Next.js` `TypeScript` `Shadcn UI` `NestJS`<br/>[Live Demo](#) • [Repository](#) |
+| **SaaS Management & Billing Platform** | Multi-tenant SaaS engine handling subscription lifecycles, automated invoicing, and role-based client workspaces. | • Multi-tenant data segregation<br/>• Idempotent webhook handling for billing events<br/>• Optimistic state synchronization | `Next.js` `NestJS` `PostgreSQL` `Prisma`<br/>[Repository](#) |
+| **E-Commerce Order & Logistics Engine** | High-throughput storefront system with cart reservations, multi-stage checkout flows, and courier webhook synchronization. | • Atomic transactional inventory locking<br/>• Background queue processing for order status transitions<br/>• Edge caching for product catalogs | `React` `Node.js` `Tailwind CSS` `PostgreSQL`<br/>[Repository](#) |
+| **Enterprise Telemetry & Operations Portal** | Centralized back-office portal providing granular RBAC permissions, audit logging, and live operational analytics. | • Role-Based Access Control (RBAC) engine<br/>• High-density virtualized data grids<br/>• Server-Sent Events (SSE) for real-time activity streams | `Next.js` `TypeScript` `Shadcn UI` `NestJS`<br/>[Repository](#) |
 
 > 💡 *Note: You can update the links and project details above to match your top repositories or client case studies.*
 
@@ -142,6 +142,6 @@ I am a Full-Stack Engineer who turns product requirements into scalable, product
 
 Open to discussions regarding full-stack software roles, architecture consulting, and product builds.
 
-**[Connect on LinkedIn](https://linkedin.com/in/tahahamdy)** &nbsp;•&nbsp; **[Send an Email](mailto:contact@tahahamdy.dev)** &nbsp;•&nbsp; **[Explore Repositories](https://github.com/TahaHamdy-MernDev?tab=repositories)**
+**[Visit Portfolio](https://taha-hamdy.vercel.app)** &nbsp;•&nbsp; **[Connect on LinkedIn](https://linkedin.com/in/tahahamdy)** &nbsp;•&nbsp; **[Send an Email](mailto:contact@tahahamdy.dev)** &nbsp;•&nbsp; **[Explore Repositories](https://github.com/TahaHamdy-MernDev?tab=repositories)**
 
 </div>
