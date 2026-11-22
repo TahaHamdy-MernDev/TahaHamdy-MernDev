@@ -133,7 +133,7 @@ def build_hero_bento(mode: str) -> str:
   <text x="30" y="179" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="13">responsive Next.js dashboards with strict end-to-end TypeScript.</text>
 
   <!-- Bottom Tech Strip -->
-  <text x="30" y="212" fill="{t["accent"]}" font-family="{FONT_MONO}" font-size="11.5" font-weight="600">TypeScript  ·  Next.js  ·  NestJS  ·  PostgreSQL  ·  Prisma  ·  Docker</text>
+  <text x="30" y="212" fill="{t["accent"]}" font-family="{FONT_MONO}" font-size="11.5" font-weight="600">TypeScript  ·  Next.js  ·  NestJS  ·  PostgreSQL  ·  Prisma  ·  Drizzle  ·  Docker</text>
 
   <!-- Right Snapshot Bento Card -->
   <rect x="584" y="0.75" width="315.25" height="238.5" rx="13.25" fill="{t["card"]}" stroke="{t["border"]}" stroke-width="1.5" />
@@ -189,19 +189,37 @@ def build_project_card(
 '''
 
 
+def render_pill_rows(rows: list[list[str]], x_start: int, y_start: int, t: dict) -> str:
+    """Renders explicit balanced rows of compact rounded tech pills."""
+    out = []
+    for row_idx, row in enumerate(rows):
+        x = x_start
+        y = y_start + row_idx * 29
+        for label in row:
+            w = max(54, len(label) * 7 + 22)
+            out.append(
+                f'<rect x="{x}" y="{y}" width="{w}" height="23" rx="6" '
+                f'fill="{t["pill_bg"]}" stroke="{t["pill_border"]}" stroke-width="1" />'
+                f'<text x="{x + w / 2:.1f}" y="{y + 15}" text-anchor="middle" '
+                f'fill="{t["pill_text"]}" font-family="{FONT_MONO}" font-size="11">{escape(label)}</text>'
+            )
+            x += w + 8
+    return "\n  ".join(out)
+
+
 def build_stack_bento(mode: str) -> str:
     t = THEMES[mode]
     quads = [
-        (0, 0, "FRONTEND & UI", "cat_fe", ["TypeScript", "Next.js", "React", "Tailwind CSS", "Shadcn UI", "Material UI"]),
-        (458, 0, "BACKEND & APIS", "cat_be", ["NestJS", "Node.js", "Express", "Fastify", "GraphQL", "Webhooks"]),
-        (0, 128, "DATABASES & ORMS", "cat_db", ["PostgreSQL", "MySQL", "MongoDB", "Prisma", "TypeORM", "Redis"]),
-        (458, 128, "DEVOPS & DELIVERY", "cat_ops", ["Docker", "Nginx", "GitHub Actions", "Vercel", "DigitalOcean", "Git"]),
+        (0, 0, "FRONTEND & UI", "cat_fe", [["TypeScript", "Next.js", "React"], ["Tailwind CSS", "Shadcn UI", "Material UI"]]),
+        (458, 0, "BACKEND & APIS", "cat_be", [["NestJS", "Node.js", "Express", "Fastify"], ["GraphQL", "REST APIs", "Webhooks"]]),
+        (0, 132, "DATABASES & ORMS", "cat_db", [["PostgreSQL", "MySQL", "MongoDB", "Redis"], ["Prisma", "Drizzle ORM", "TypeORM"]]),
+        (458, 132, "DEVOPS & DELIVERY", "cat_ops", [["Docker", "Nginx", "GitHub Actions"], ["Vercel", "DigitalOcean", "Git"]]),
     ]
     blocks = []
-    for x, y, title, color_key, items in quads:
-        pills = render_pills(items, x + 22, y + 48, t, max_width=402)
+    for x, y, title, color_key, rows in quads:
+        pills = render_pill_rows(rows, x + 22, y + 48, t)
         blocks.append(
-            f'<rect x="{x + 0.75}" y="{y + 0.75}" width="440.5" height="110.5" rx="13.25" '
+            f'<rect x="{x + 0.75}" y="{y + 0.75}" width="440.5" height="114.5" rx="13.25" '
             f'fill="{t["card"]}" stroke="{t["border"]}" stroke-width="1.5" />\n'
             f'  <circle cx="{x + 28}" cy="{y + 27}" r="4.5" fill="{t[color_key]}" />\n'
             f'  <text x="{x + 40}" y="{y + 31}" fill="{t["text"]}" font-family="{FONT_MONO}" '
@@ -209,7 +227,7 @@ def build_stack_bento(mode: str) -> str:
             f'  {pills}'
         )
     inner = "\n  ".join(blocks)
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="240" viewBox="0 0 900 240" fill="none">
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="248" viewBox="0 0 900 248" fill="none">
   {inner}
 </svg>
 '''

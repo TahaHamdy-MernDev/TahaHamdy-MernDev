@@ -14,7 +14,7 @@
   </a>
   &nbsp;
   <a href="https://linkedin.com/in/tahahamdy" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+    <img src="https://img.shields.io/badge/LinkedIn-161b22?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
   </a>
   &nbsp;
   <a href="mailto:contact@tahahamdy.dev">
@@ -103,9 +103,9 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/TahaHamdy-MernDev/TahaHamdy-MernDev/output/snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/TahaHamdy-MernDev/TahaHamdy-MernDev/output/snake-light.svg" />
-  <img alt="Contribution Snake" src="https://raw.githubusercontent.com/TahaHamdy-MernDev/TahaHamdy-MernDev/output/snake-dark.svg" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/TahaHamdy-MernDev/TahaHamdy-MernDev/output/profile-night-green.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/TahaHamdy-MernDev/TahaHamdy-MernDev/output/profile-green.svg" />
+  <img alt="3D Isometric Contribution Graph" src="https://raw.githubusercontent.com/TahaHamdy-MernDev/TahaHamdy-MernDev/output/profile-night-green.svg" width="100%" />
 </picture>
 
 <br /><br />
@@ -114,13 +114,13 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com/?user=TahaHamdy-MernDev&theme=github-dark-blue&hide_border=false&border=30363d&border_radius=12&background=161b22" />
     <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com/?user=TahaHamdy-MernDev&theme=default&hide_border=false&border=d0d7de&border_radius=12&background=f6f8fa" />
-    <img src="https://streak-stats.demolab.com/?user=TahaHamdy-MernDev&theme=github-dark-blue&hide_border=false&border=30363d&border_radius=12&background=161b22" alt="Taha Hamdy GitHub Streak" width="48.8%" />
+    <img src="https://streak-stats.demolab.com/?user=TahaHamdy-MernDev&theme=github-dark-blue&hide_border=false&border=30363d&border_radius=12&background=161b22" alt="Taha Hamdy GitHub Streak" height="168" />
   </picture>
   &nbsp;&nbsp;
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.shion.dev/api/top-langs/?username=TahaHamdy-MernDev&theme=github_dark&bg_color=161b22&border_color=30363d&border_radius=12&include_all_commits=true&count_private=true&layout=compact" />
-    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.shion.dev/api/top-langs/?username=TahaHamdy-MernDev&theme=default&bg_color=f6f8fa&border_color=d0d7de&border_radius=12&include_all_commits=true&count_private=true&layout=compact" />
-    <img src="https://github-readme-stats.shion.dev/api/top-langs/?username=TahaHamdy-MernDev&theme=github_dark&bg_color=161b22&border_color=30363d&border_radius=12&include_all_commits=true&count_private=true&layout=compact" alt="Taha Hamdy Top Languages" width="48.8%" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.shion.dev/api/top-langs/?username=TahaHamdy-MernDev&theme=github_dark&bg_color=161b22&border_color=30363d&border_radius=12&include_all_commits=true&count_private=true&layout=compact&hide=html,tex,css,scss&langs_count=6" />
+    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.shion.dev/api/top-langs/?username=TahaHamdy-MernDev&theme=default&bg_color=f6f8fa&border_color=d0d7de&border_radius=12&include_all_commits=true&count_private=true&layout=compact&hide=html,tex,css,scss&langs_count=6" />
+    <img src="https://github-readme-stats.shion.dev/api/top-langs/?username=TahaHamdy-MernDev&theme=github_dark&bg_color=161b22&border_color=30363d&border_radius=12&include_all_commits=true&count_private=true&layout=compact&hide=html,tex,css,scss&langs_count=6" alt="Taha Hamdy Top Languages" height="168" />
   </picture>
 </p>
 
