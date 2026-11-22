@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """
-Generates dual-theme (dark & light) flat, minimalist SVG sections for the GitHub Profile README:
-- profile-hero-{dark,light}.svg       : Flat 2-card hero + snapshot (zero gradients, zero status badge)
-- profile-stack-{dark,light}.svg      : Clean 4-row horizontal spec sheet with real downloaded SVG icons
-- profile-principles-{dark,light}.svg : 3-column x 2-row flat editorial principles grid with vector icons
+Generates dual-theme (dark & light) flat, minimalist, subtly animated SVG sections
+for the GitHub Profile README:
+- profile-hero-v2-{dark,light}.svg       : Flat 2-card hero + snapshot with smooth staggered fade-in
+- profile-stack-v2-{dark,light}.svg      : Clean 4-row horizontal spec sheet with real animated brand icons
+- profile-principles-v2-{dark,light}.svg : 3-column x 2-row flat editorial principles grid with animated icons
+- btn-*-{dark,light}.svg                 : Rounded flat monochrome button pills
 Run: python3 scripts/generate_assets.py
 """
 
@@ -121,7 +123,8 @@ UI_ICONS = {
     ),
 }
 
-MONOCHROME_ICONS = {"shadcnui", "express", "fastify", "vercel", "prisma"}
+# Single-path monochrome icons that adapt cleanly to dark & light modes
+MONOCHROME_ICONS = {"nextjs", "shadcnui", "express", "fastify", "vercel", "prisma"}
 
 
 def ui_icon_svg(name: str, x: float, y: float, size: int, color: str, stroke_width: float = 1.75) -> str:
@@ -147,7 +150,7 @@ def embed_brand_icon(icon_name: str, x: float, y: float, size: int, mode: str, u
     raw = re.sub(r"<title>.*?</title>", "", raw, flags=re.S)
 
     vb_match = re.search(r'viewBox="([^"]+)"', raw)
-    view_box = vb_match.group(1) if vb_match else "0 0 128 128"
+    view_box = vb_match.group(1) if vb_match else "0 0 24 24"
     inner_match = re.search(r"<svg[^>]*>(.*)</svg>", raw, flags=re.S)
     inner = inner_match.group(1).strip() if inner_match else ""
 
@@ -167,14 +170,8 @@ def embed_brand_icon(icon_name: str, x: float, y: float, size: int, mode: str, u
     elif icon_name == "typeorm":
         fill_attr = ' fill="#fe0803"'
 
-    backdrop = ""
-    if icon_name == "nextjs" and mode == "dark":
-        cx = x + size / 2
-        cy = y + size / 2
-        backdrop = f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{size / 2 - 0.5:.1f}" fill="#ffffff" />'
-
     return (
-        f'{backdrop}<svg x="{x:.1f}" y="{y:.1f}" width="{size}" height="{size}" '
+        f'<svg x="{x:.1f}" y="{y:.1f}" width="{size}" height="{size}" '
         f'viewBox="{view_box}"{fill_attr}>{inner}</svg>'
     )
 
@@ -186,40 +183,66 @@ def build_hero(mode: str) -> str:
     box_ic = ui_icon_svg("box", 612, 166, 14, t["subtext"], 1.7)
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="216" viewBox="0 0 900 216" fill="none">
+  <style>
+    @keyframes fadeUp {{
+      from {{ opacity: 0; transform: translateY(6px); }}
+      to {{ opacity: 1; transform: translateY(0); }}
+    }}
+    .a1 {{ opacity: 0; animation: fadeUp 0.55s ease-out 0.05s forwards; }}
+    .a2 {{ opacity: 0; animation: fadeUp 0.55s ease-out 0.16s forwards; }}
+    .a3 {{ opacity: 0; animation: fadeUp 0.55s ease-out 0.28s forwards; }}
+    .a4 {{ opacity: 0; animation: fadeUp 0.55s ease-out 0.38s forwards; }}
+    @media (prefers-reduced-motion: reduce) {{
+      .a1, .a2, .a3, .a4 {{ opacity: 1; animation: none; }}
+    }}
+  </style>
+
   <!-- Left Flat Identity Card -->
   <rect x="0.5" y="0.5" width="565" height="215" rx="14" fill="{t["card"]}" stroke="{t["border"]}" stroke-width="1" />
 
-  <text x="36" y="60" fill="{t["text"]}" font-family="{FONT_SANS}" font-size="34" font-weight="700" letter-spacing="-0.7">Taha Hamdy</text>
-  <text x="36" y="90" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="15" font-weight="500">Mid-Level Full-Stack Software Engineer</text>
+  <g class="a1">
+    <text x="36" y="60" fill="{t["text"]}" font-family="{FONT_SANS}" font-size="34" font-weight="700" letter-spacing="-0.7">Taha Hamdy</text>
+    <text x="36" y="90" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="15" font-weight="500">Mid-Level Full-Stack Software Engineer</text>
+  </g>
 
-  <text x="36" y="128" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="13.5">Building scalable SaaS platforms, modular NestJS APIs,</text>
-  <text x="36" y="149" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="13.5">and responsive Next.js dashboards with end-to-end TypeScript.</text>
+  <g class="a2">
+    <text x="36" y="128" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="13.5">Building scalable SaaS platforms, modular NestJS APIs,</text>
+    <text x="36" y="149" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="13.5">and responsive Next.js dashboards with end-to-end TypeScript.</text>
+  </g>
 
-  <line x1="36" y1="172" x2="530" y2="172" stroke="{t["divider"]}" stroke-width="1" />
-  <text x="36" y="195" fill="{t["muted"]}" font-family="{FONT_MONO}" font-size="11.5">TypeScript  ·  Next.js  ·  NestJS  ·  PostgreSQL  ·  Prisma  ·  Drizzle</text>
+  <g class="a3">
+    <line x1="36" y1="172" x2="530" y2="172" stroke="{t["divider"]}" stroke-width="1" />
+    <text x="36" y="195" fill="{t["muted"]}" font-family="{FONT_MONO}" font-size="11.5">TypeScript  ·  Next.js  ·  NestJS  ·  PostgreSQL  ·  Prisma  ·  Drizzle</text>
+  </g>
 
   <!-- Right Flat Snapshot Card -->
   <rect x="585.5" y="0.5" width="314" height="215" rx="14" fill="{t["card"]}" stroke="{t["border"]}" stroke-width="1" />
   <text x="612" y="34" fill="{t["muted"]}" font-family="{FONT_MONO}" font-size="10.5" font-weight="600" letter-spacing="1.2">SNAPSHOT</text>
   <line x1="612" y1="48" x2="874" y2="48" stroke="{t["divider"]}" stroke-width="1" />
 
-  {pin_ic}
-  <text x="634" y="73" fill="{t["muted"]}" font-family="{FONT_MONO}" font-size="10">LOCATION</text>
-  <text x="634" y="92" fill="{t["text"]}" font-family="{FONT_SANS}" font-size="13.5" font-weight="500">Cairo, Egypt (UTC+2)</text>
+  <g class="a2">
+    {pin_ic}
+    <text x="634" y="73" fill="{t["muted"]}" font-family="{FONT_MONO}" font-size="10">LOCATION</text>
+    <text x="634" y="92" fill="{t["text"]}" font-family="{FONT_SANS}" font-size="13.5" font-weight="500">Cairo, Egypt (UTC+2)</text>
+  </g>
 
-  {layers_ic}
-  <text x="634" y="125" fill="{t["muted"]}" font-family="{FONT_MONO}" font-size="10">FOCUS</text>
-  <text x="634" y="144" fill="{t["text"]}" font-family="{FONT_SANS}" font-size="13.5" font-weight="500">Multi-Tenant SaaS &amp; Commerce</text>
+  <g class="a3">
+    {layers_ic}
+    <text x="634" y="125" fill="{t["muted"]}" font-family="{FONT_MONO}" font-size="10">FOCUS</text>
+    <text x="634" y="144" fill="{t["text"]}" font-family="{FONT_SANS}" font-size="13.5" font-weight="500">Multi-Tenant SaaS &amp; Commerce</text>
+  </g>
 
-  {box_ic}
-  <text x="634" y="177" fill="{t["muted"]}" font-family="{FONT_MONO}" font-size="10">BUILDING</text>
-  <text x="634" y="196" fill="{t["text"]}" font-family="{FONT_SANS}" font-size="13.5" font-weight="500">Web Platforms &amp; Dev Tooling</text>
+  <g class="a4">
+    {box_ic}
+    <text x="634" y="177" fill="{t["muted"]}" font-family="{FONT_MONO}" font-size="10">BUILDING</text>
+    <text x="634" y="196" fill="{t["text"]}" font-family="{FONT_SANS}" font-size="13.5" font-weight="500">Web Platforms &amp; Dev Tooling</text>
+  </g>
 </svg>
 '''
 
 
 def build_stack(mode: str) -> str:
-    """Clean 4-row horizontal spec sheet with real embedded brand icons (no nested box clutter)."""
+    """Clean 4-row horizontal spec sheet with real embedded animated brand icons."""
     t = THEMES[mode]
     rows = [
         (
@@ -276,6 +299,22 @@ def build_stack(mode: str) -> str:
     row_h = 74
     total_h = row_h * len(rows)
     blocks = [
+        '''<style>
+    @keyframes floatWave {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-2.2px); }
+    }
+    @keyframes rowIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .row { opacity: 0; animation: rowIn 0.5s ease-out forwards; }
+    .ic { animation: floatWave 3.8s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) {
+      .row { opacity: 1; animation: none; }
+      .ic { animation: none; }
+    }
+  </style>''',
         f'<rect x="0.5" y="0.5" width="899" height="{total_h - 1}" rx="14" fill="{t["card"]}" stroke="{t["border"]}" stroke-width="1" />',
         f'<line x1="176" y1="16" x2="176" y2="{total_h - 16}" stroke="{t["divider"]}" stroke-width="1" />',
     ]
@@ -283,33 +322,32 @@ def build_stack(mode: str) -> str:
     for r_idx, (cat_icon, cat_label, items) in enumerate(rows):
         y_top = r_idx * row_h
         y_mid = y_top + row_h / 2
+        row_delay = 0.08 * r_idx
 
         if r_idx > 0:
             blocks.append(f'<line x1="20" y1="{y_top}" x2="880" y2="{y_top}" stroke="{t["divider"]}" stroke-width="1" />')
 
-        # Left category cell
-        blocks.append(
-            f'<rect x="24" y="{y_mid - 14:.1f}" width="28" height="28" rx="7" '
-            f'fill="{t["icon_box_bg"]}" stroke="{t["icon_box_border"]}" stroke-width="1" />'
-        )
-        blocks.append(ui_icon_svg(cat_icon, 31, y_mid - 7, 14, t["icon_stroke"], 1.8))
-        blocks.append(
-            f'<text x="64" y="{y_mid + 4.5:.1f}" fill="{t["text"]}" font-family="{FONT_SANS}" '
-            f'font-size="13" font-weight="600">{escape(cat_label)}</text>'
-        )
+        row_parts = [
+            f'<rect x="24" y="{y_mid - 14:.1f}" width="28" height="28" rx="7" fill="{t["icon_box_bg"]}" stroke="{t["icon_box_border"]}" stroke-width="1" />',
+            ui_icon_svg(cat_icon, 31, y_mid - 7, 14, t["icon_stroke"], 1.8),
+            f'<text x="64" y="{y_mid + 4.5:.1f}" fill="{t["text"]}" font-family="{FONT_SANS}" font-size="13" font-weight="600">{escape(cat_label)}</text>',
+        ]
 
-        # Right horizontal icon+label items
         x = 200.0
         for c_idx, (icon_key, label) in enumerate(items):
             uid = f"st_r{r_idx}c{c_idx}"
-            blocks.append(embed_brand_icon(icon_key, x, y_mid - 9, 18, mode, uid))
-            blocks.append(
+            wave_delay = (r_idx * 0.45 + c_idx * 0.25) % 3.8
+            icon_el = embed_brand_icon(icon_key, x, y_mid - 9, 18, mode, uid)
+            row_parts.append(f'<g class="ic" style="animation-delay:{wave_delay:.2f}s">{icon_el}</g>')
+            row_parts.append(
                 f'<text x="{x + 25:.1f}" y="{y_mid + 4.5:.1f}" fill="{t["text"]}" '
                 f'font-family="{FONT_SANS}" font-size="12.5" font-weight="500">{escape(label)}</text>'
             )
             step = max(78.0, 26.0 + len(label) * 7.0 + 18.0)
             x += step
         assert x - 18.0 <= 886.0, f"Row '{cat_label}' overflowed ({x - 18.0} > 886)"
+
+        blocks.append(f'<g class="row" style="animation-delay:{row_delay:.2f}s">\n    ' + "\n    ".join(row_parts) + "\n  </g>")
 
     inner = "\n  ".join(blocks)
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="{total_h}" viewBox="0 0 900 {total_h}" fill="none">
@@ -319,7 +357,7 @@ def build_stack(mode: str) -> str:
 
 
 def build_principles(mode: str) -> str:
-    """3-column x 2-row flat editorial principles grid with generous spacing."""
+    """3-column x 2-row flat editorial principles grid with staggered entrance & subtle icon pulse."""
     t = THEMES[mode]
     cards = [
         (
@@ -372,24 +410,48 @@ def build_principles(mode: str) -> str:
     gap_y = 18
     total_h = card_h * 2 + gap_y
 
-    blocks = []
+    blocks = [
+        '''<style>
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulseSoft {
+      0%, 100% { opacity: 0.78; }
+      50% { opacity: 1; }
+    }
+    .pcard { opacity: 0; animation: cardIn 0.55s ease-out forwards; }
+    .pic { animation: pulseSoft 4.2s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) {
+      .pcard { opacity: 1; animation: none; }
+      .pic { animation: none; }
+    }
+  </style>'''
+    ]
+
     for idx, (icon_name, title, l1, l2, l3) in enumerate(cards):
         col = idx % 3
         row = idx // 3
         x = col * (card_w + gap_x)
         y = row * (card_h + gap_y)
         ic = ui_icon_svg(icon_name, x + 28, y + 26, 16, t["icon_stroke"], 1.8)
+        delay = 0.08 * idx
+        p_delay = 0.65 * idx
         blocks.append(
-            f'<rect x="{x + 0.5}" y="{y + 0.5}" width="{card_w - 1}" height="{card_h - 1}" rx="14" '
+            f'<g class="pcard" style="animation-delay:{delay:.2f}s">\n'
+            f'    <rect x="{x + 0.5}" y="{y + 0.5}" width="{card_w - 1}" height="{card_h - 1}" rx="14" '
             f'fill="{t["card"]}" stroke="{t["border"]}" stroke-width="1" />\n'
-            f'  <rect x="{x + 22}" y="{y + 20}" width="28" height="28" rx="8" '
+            f'    <g class="pic" style="animation-delay:{p_delay:.2f}s">\n'
+            f'      <rect x="{x + 22}" y="{y + 20}" width="28" height="28" rx="8" '
             f'fill="{t["icon_box_bg"]}" stroke="{t["icon_box_border"]}" stroke-width="1" />\n'
-            f'  {ic}\n'
-            f'  <text x="{x + 22}" y="{y + 72}" fill="{t["text"]}" font-family="{FONT_SANS}" '
+            f'      {ic}\n'
+            f'    </g>\n'
+            f'    <text x="{x + 22}" y="{y + 72}" fill="{t["text"]}" font-family="{FONT_SANS}" '
             f'font-size="14" font-weight="600">{escape(title)}</text>\n'
-            f'  <text x="{x + 22}" y="{y + 96}" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="12">{escape(l1)}</text>\n'
-            f'  <text x="{x + 22}" y="{y + 114}" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="12">{escape(l2)}</text>\n'
-            f'  <text x="{x + 22}" y="{y + 132}" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="12">{escape(l3)}</text>'
+            f'    <text x="{x + 22}" y="{y + 96}" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="12">{escape(l1)}</text>\n'
+            f'    <text x="{x + 22}" y="{y + 114}" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="12">{escape(l2)}</text>\n'
+            f'    <text x="{x + 22}" y="{y + 132}" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="12">{escape(l3)}</text>\n'
+            f'  </g>'
         )
 
     inner = "\n  ".join(blocks)
@@ -400,7 +462,6 @@ def build_principles(mode: str) -> str:
 
 
 def build_button(mode: str, icon_name: str, label: str, width: int) -> str:
-    """Renders a crisp rounded flat button pill matching the Bento card palette."""
     t = THEMES[mode]
     h = 36
     ic = ui_icon_svg(icon_name, 16, 10.5, 15, t["icon_stroke"], 1.8)
@@ -413,8 +474,8 @@ def build_button(mode: str, icon_name: str, label: str, width: int) -> str:
 
 
 def main() -> None:
-    # Remove old cached bento-*.svg filenames so GitHub camo CDN fetches fresh assets immediately
-    for old in ASSETS.glob("bento-*.svg"):
+    # Remove v1 profile SVGs so GitHub camo CDN serves the fresh v2 animated assets immediately
+    for old in ASSETS.glob("profile-*.svg"):
         old.unlink()
 
     buttons = [
@@ -425,13 +486,13 @@ def main() -> None:
     ]
 
     for mode in ("dark", "light"):
-        (ASSETS / f"profile-hero-{mode}.svg").write_text(build_hero(mode), encoding="utf-8")
-        (ASSETS / f"profile-stack-{mode}.svg").write_text(build_stack(mode), encoding="utf-8")
-        (ASSETS / f"profile-principles-{mode}.svg").write_text(build_principles(mode), encoding="utf-8")
+        (ASSETS / f"profile-hero-v2-{mode}.svg").write_text(build_hero(mode), encoding="utf-8")
+        (ASSETS / f"profile-stack-v2-{mode}.svg").write_text(build_stack(mode), encoding="utf-8")
+        (ASSETS / f"profile-principles-v2-{mode}.svg").write_text(build_principles(mode), encoding="utf-8")
         for slug, icon_name, label, width in buttons:
             (ASSETS / f"btn-{slug}-{mode}.svg").write_text(build_button(mode, icon_name, label, width), encoding="utf-8")
 
-    print(f"Generated {len(list(ASSETS.glob('profile-*.svg')))} section SVGs + {len(list(ASSETS.glob('btn-*.svg')))} button SVGs.")
+    print("Generated 6 animated v2 section SVGs + 8 button SVGs.")
 
 
 if __name__ == "__main__":
