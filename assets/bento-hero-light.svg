@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="240" viewBox="0 0 900 240" fill="none">
+  <defs>
+    <radialGradient id="glow-light" cx="90%" cy="10%" r="75%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.10" />
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0" />
+    </radialGradient>
+    <pattern id="grid-light" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#d0d7de" stroke-width="0.6" stroke-opacity="0.55" />
+    </pattern>
+    <clipPath id="clip-left-light">
+      <rect x="0" y="0" width="568" height="240" rx="14" />
+    </clipPath>
+  </defs>
+
+  <!-- Left Main Hero Bento Card -->
+  <g clip-path="url(#clip-left-light)">
+    <rect x="0" y="0" width="568" height="240" rx="14" fill="#f6f8fa" />
+    <rect x="0" y="0" width="568" height="240" fill="url(#grid-light)" />
+    <rect x="0" y="0" width="568" height="240" fill="url(#glow-light)" />
+  </g>
+  <rect x="0.75" y="0.75" width="566.5" height="238.5" rx="13.25" stroke="#d0d7de" stroke-width="1.5" />
+
+  <!-- Status Pill -->
+  <rect x="30" y="28" width="258" height="26" rx="13" fill="#ecfdf5" fill-opacity="1" stroke="#10b981" stroke-opacity="0.45" stroke-width="1" />
+  <circle cx="46" cy="41" r="4" fill="#10b981" />
+  <text x="58" y="45" fill="#047857" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="0.4">OPEN TO MID-LEVEL FULL-STACK ROLES</text>
+
+  <!-- Name & Role -->
+  <text x="30" y="102" fill="#1f2328" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="36" font-weight="700" letter-spacing="-0.8">Taha Hamdy</text>
+  <text x="30" y="132" fill="#57606a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15.5" font-weight="500">Mid-Level Full-Stack Software Engineer</text>
+  <text x="30" y="160" fill="#57606a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13">Building scalable SaaS platforms, modular NestJS APIs, and</text>
+  <text x="30" y="179" fill="#57606a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13">responsive Next.js dashboards with strict end-to-end TypeScript.</text>
+
+  <!-- Bottom Tech Strip -->
+  <text x="30" y="212" fill="#4f46e5" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="600">TypeScript  ·  Next.js  ·  NestJS  ·  PostgreSQL  ·  Prisma  ·  Docker</text>
+
+  <!-- Right Snapshot Bento Card -->
+  <rect x="584" y="0.75" width="315.25" height="238.5" rx="13.25" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1.5" />
+  <text x="608" y="34" fill="#6e7781" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11" font-weight="600" letter-spacing="1.2">PROFILE SNAPSHOT</text>
+  <line x1="608" y1="48" x2="875" y2="48" stroke="#d8dee4" stroke-width="1" />
+
+  <text x="608" y="76" fill="#6e7781" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11">LOCATION</text>
+  <text x="608" y="94" fill="#1f2328" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="500">Cairo, Egypt (UTC+2)</text>
+
+  <text x="608" y="124" fill="#6e7781" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11">SPECIALIZATION</text>
+  <text x="608" y="142" fill="#1f2328" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="500">Multi-Tenant SaaS &amp; Commerce</text>
+
+  <text x="608" y="172" fill="#6e7781" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11">CURRENTLY SHIPPING</text>
+  <text x="608" y="190" fill="#1f2328" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="500">Web Platforms &amp; VS Code Tooling</text>
+
+  <text x="608" y="218" fill="#0969da" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11">taha-hamdy.vercel.app</text>
+</svg>
