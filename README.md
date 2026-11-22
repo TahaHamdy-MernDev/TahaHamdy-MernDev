@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/profile-hero-v2-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/profile-hero-v2-light.svg" />
-  <img alt="Taha Hamdy — Mid-Level Full-Stack Software Engineer" src="./assets/profile-hero-v2-dark.svg" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/profile-hero-v3-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/profile-hero-v3-light.svg" />
+  <img alt="Taha Hamdy — Full-Stack Software Engineer" src="./assets/profile-hero-v3-dark.svg" width="100%" />
 </picture>
 
 <br /><br />

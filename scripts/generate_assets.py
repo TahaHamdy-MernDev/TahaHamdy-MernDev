@@ -202,12 +202,12 @@ def build_hero(mode: str) -> str:
 
   <g class="a1">
     <text x="36" y="60" fill="{t["text"]}" font-family="{FONT_SANS}" font-size="34" font-weight="700" letter-spacing="-0.7">Taha Hamdy</text>
-    <text x="36" y="90" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="15" font-weight="500">Mid-Level Full-Stack Software Engineer</text>
+    <text x="36" y="90" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="15" font-weight="500">Full-Stack Software Engineer</text>
   </g>
 
   <g class="a2">
-    <text x="36" y="128" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="13.5">Building scalable SaaS platforms, modular NestJS APIs,</text>
-    <text x="36" y="149" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="13.5">and responsive Next.js dashboards with end-to-end TypeScript.</text>
+    <text x="36" y="128" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="13.5">Designing and shipping production SaaS platforms, modular</text>
+    <text x="36" y="149" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="13.5">NestJS APIs, and fast Next.js interfaces with TypeScript.</text>
   </g>
 
   <g class="a3">
@@ -486,7 +486,7 @@ def main() -> None:
     ]
 
     for mode in ("dark", "light"):
-        (ASSETS / f"profile-hero-v2-{mode}.svg").write_text(build_hero(mode), encoding="utf-8")
+        (ASSETS / f"profile-hero-v3-{mode}.svg").write_text(build_hero(mode), encoding="utf-8")
         (ASSETS / f"profile-stack-v2-{mode}.svg").write_text(build_stack(mode), encoding="utf-8")
         (ASSETS / f"profile-principles-v2-{mode}.svg").write_text(build_principles(mode), encoding="utf-8")
         for slug, icon_name, label, width in buttons:
