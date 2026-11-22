@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
-Generates dual-theme (dark & light) flat, minimalist Bento Grid SVG assets
-for the GitHub Profile README, embedding downloaded SVG brand icons from assets/icons/.
+Generates dual-theme (dark & light) flat, minimalist SVG sections for the GitHub Profile README:
+- profile-hero-{dark,light}.svg       : Flat 2-card hero + snapshot (zero gradients, zero status badge)
+- profile-stack-{dark,light}.svg      : Clean 4-row horizontal spec sheet with real downloaded SVG icons
+- profile-principles-{dark,light}.svg : 3-column x 2-row flat editorial principles grid with vector icons
 Run: python3 scripts/generate_assets.py
 """
 
@@ -27,9 +29,6 @@ THEMES = {
         "text": "#e6edf3",
         "subtext": "#8b949e",
         "muted": "#6e7681",
-        "pill_bg": "#0d1117",
-        "pill_border": "#30363d",
-        "pill_text": "#c9d1d9",
         "icon_box_bg": "#21262d",
         "icon_box_border": "#30363d",
         "icon_stroke": "#c9d1d9",
@@ -43,9 +42,6 @@ THEMES = {
         "text": "#1f2328",
         "subtext": "#57606a",
         "muted": "#6e7781",
-        "pill_bg": "#ffffff",
-        "pill_border": "#d0d7de",
-        "pill_text": "#24292f",
         "icon_box_bg": "#ffffff",
         "icon_box_border": "#d0d7de",
         "icon_stroke": "#57606a",
@@ -54,7 +50,6 @@ THEMES = {
     },
 }
 
-# Clean Lucide-style 24x24 stroke icons
 UI_ICONS = {
     "layout": (
         '<rect x="3" y="3" width="18" height="18" rx="2" />'
@@ -72,9 +67,7 @@ UI_ICONS = {
         '<path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5" />'
         '<path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3" />'
     ),
-    "cloud": (
-        '<path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />'
-    ),
+    "cloud": '<path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />',
     "webhook": (
         '<path d="M18 16.98h-5.99c-1.1 0-1.95.94-2.48 1.9A4 4 0 0 1 2 17c.01-.7.2-1.4.57-2" />'
         '<path d="m6 17 3.13-5.78c.53-.97.1-2.18-.5-3.1a4 4 0 1 1 6.89-4.06" />'
@@ -84,9 +77,7 @@ UI_ICONS = {
         '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />'
         '<path d="m9 12 2 2 4-4" />'
     ),
-    "zap": (
-        '<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />'
-    ),
+    "zap": '<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />',
     "refresh": (
         '<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />'
         '<path d="M21 3v5h-5" />'
@@ -113,13 +104,13 @@ UI_ICONS = {
     ),
 }
 
-MONOCHROME_ICONS = {"shadcnui", "express", "fastify", "vercel"}
+MONOCHROME_ICONS = {"shadcnui", "express", "fastify", "vercel", "prisma"}
 
 
-def ui_icon_svg(name: str, x: float, y: float, size: int, color: str, stroke_width: float = 1.8) -> str:
+def ui_icon_svg(name: str, x: float, y: float, size: int, color: str, stroke_width: float = 1.75) -> str:
     body = UI_ICONS[name]
     return (
-        f'<svg x="{x}" y="{y}" width="{size}" height="{size}" viewBox="0 0 24 24" '
+        f'<svg x="{x:.1f}" y="{y:.1f}" width="{size}" height="{size}" viewBox="0 0 24 24" '
         f'fill="none" stroke="{color}" stroke-width="{stroke_width}" '
         f'stroke-linecap="round" stroke-linejoin="round">{body}</svg>'
     )
@@ -156,8 +147,6 @@ def embed_brand_icon(icon_name: str, x: float, y: float, size: int, mode: str, u
         fill_attr = f' fill="{t["mono_icon"]}"'
     elif icon_name == "drizzle":
         fill_attr = f' fill="{t["drizzle_icon"]}"'
-    elif icon_name == "prisma":
-        fill_attr = f' fill="{t["mono_icon"]}"'
     elif icon_name == "typeorm":
         fill_attr = ' fill="#fe0803"'
 
@@ -173,223 +162,237 @@ def embed_brand_icon(icon_name: str, x: float, y: float, size: int, mode: str, u
     )
 
 
-def build_hero_bento(mode: str) -> str:
+def build_hero(mode: str) -> str:
     t = THEMES[mode]
-    pin_ic = ui_icon_svg("pin", 612, 66, 14, t["subtext"], 1.7)
-    layers_ic = ui_icon_svg("layers", 612, 118, 14, t["subtext"], 1.7)
-    box_ic = ui_icon_svg("box", 612, 170, 14, t["subtext"], 1.7)
+    pin_ic = ui_icon_svg("pin", 612, 62, 14, t["subtext"], 1.7)
+    layers_ic = ui_icon_svg("layers", 612, 114, 14, t["subtext"], 1.7)
+    box_ic = ui_icon_svg("box", 612, 166, 14, t["subtext"], 1.7)
 
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="224" viewBox="0 0 900 224" fill="none">
-  <!-- Left Flat Main Card -->
-  <rect x="0.5" y="0.5" width="567" height="223" rx="14" fill="{t["card"]}" stroke="{t["border"]}" stroke-width="1" />
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="216" viewBox="0 0 900 216" fill="none">
+  <!-- Left Flat Identity Card -->
+  <rect x="0.5" y="0.5" width="565" height="215" rx="14" fill="{t["card"]}" stroke="{t["border"]}" stroke-width="1" />
 
-  <text x="36" y="64" fill="{t["text"]}" font-family="{FONT_SANS}" font-size="34" font-weight="700" letter-spacing="-0.7">Taha Hamdy</text>
-  <text x="36" y="94" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="15" font-weight="500">Mid-Level Full-Stack Software Engineer</text>
+  <text x="36" y="60" fill="{t["text"]}" font-family="{FONT_SANS}" font-size="34" font-weight="700" letter-spacing="-0.7">Taha Hamdy</text>
+  <text x="36" y="90" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="15" font-weight="500">Mid-Level Full-Stack Software Engineer</text>
 
-  <text x="36" y="132" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="13.5">Building scalable SaaS platforms, modular NestJS APIs,</text>
-  <text x="36" y="153" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="13.5">and responsive Next.js dashboards with end-to-end TypeScript.</text>
+  <text x="36" y="128" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="13.5">Building scalable SaaS platforms, modular NestJS APIs,</text>
+  <text x="36" y="149" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="13.5">and responsive Next.js dashboards with end-to-end TypeScript.</text>
 
-  <line x1="36" y1="178" x2="532" y2="178" stroke="{t["divider"]}" stroke-width="1" />
-  <text x="36" y="201" fill="{t["muted"]}" font-family="{FONT_MONO}" font-size="11.5">TypeScript  ·  Next.js  ·  NestJS  ·  PostgreSQL  ·  Prisma  ·  Drizzle</text>
+  <line x1="36" y1="172" x2="530" y2="172" stroke="{t["divider"]}" stroke-width="1" />
+  <text x="36" y="195" fill="{t["muted"]}" font-family="{FONT_MONO}" font-size="11.5">TypeScript  ·  Next.js  ·  NestJS  ·  PostgreSQL  ·  Prisma  ·  Drizzle</text>
 
   <!-- Right Flat Snapshot Card -->
-  <rect x="586.5" y="0.5" width="313" height="223" rx="14" fill="{t["card"]}" stroke="{t["border"]}" stroke-width="1" />
+  <rect x="585.5" y="0.5" width="314" height="215" rx="14" fill="{t["card"]}" stroke="{t["border"]}" stroke-width="1" />
   <text x="612" y="34" fill="{t["muted"]}" font-family="{FONT_MONO}" font-size="10.5" font-weight="600" letter-spacing="1.2">SNAPSHOT</text>
   <line x1="612" y1="48" x2="874" y2="48" stroke="{t["divider"]}" stroke-width="1" />
 
   {pin_ic}
-  <text x="634" y="77" fill="{t["muted"]}" font-family="{FONT_MONO}" font-size="10">LOCATION</text>
-  <text x="634" y="96" fill="{t["text"]}" font-family="{FONT_SANS}" font-size="13.5" font-weight="500">Cairo, Egypt (UTC+2)</text>
+  <text x="634" y="73" fill="{t["muted"]}" font-family="{FONT_MONO}" font-size="10">LOCATION</text>
+  <text x="634" y="92" fill="{t["text"]}" font-family="{FONT_SANS}" font-size="13.5" font-weight="500">Cairo, Egypt (UTC+2)</text>
 
   {layers_ic}
-  <text x="634" y="129" fill="{t["muted"]}" font-family="{FONT_MONO}" font-size="10">FOCUS</text>
-  <text x="634" y="148" fill="{t["text"]}" font-family="{FONT_SANS}" font-size="13.5" font-weight="500">Multi-Tenant SaaS &amp; Commerce</text>
+  <text x="634" y="125" fill="{t["muted"]}" font-family="{FONT_MONO}" font-size="10">FOCUS</text>
+  <text x="634" y="144" fill="{t["text"]}" font-family="{FONT_SANS}" font-size="13.5" font-weight="500">Multi-Tenant SaaS &amp; Commerce</text>
 
   {box_ic}
-  <text x="634" y="181" fill="{t["muted"]}" font-family="{FONT_MONO}" font-size="10">BUILDING</text>
-  <text x="634" y="200" fill="{t["text"]}" font-family="{FONT_SANS}" font-size="13.5" font-weight="500">Web Platforms &amp; Dev Tooling</text>
+  <text x="634" y="177" fill="{t["muted"]}" font-family="{FONT_MONO}" font-size="10">BUILDING</text>
+  <text x="634" y="196" fill="{t["text"]}" font-family="{FONT_SANS}" font-size="13.5" font-weight="500">Web Platforms &amp; Dev Tooling</text>
 </svg>
 '''
 
 
-def render_icon_pill_rows(
-    rows: list[list[tuple[str, str]]],
-    card_x: int,
-    y_start: int,
-    mode: str,
-    quad_idx: int,
-) -> str:
-    """Renders spacious balanced rows of flat pills with embedded SVG brand icons."""
+def build_stack(mode: str) -> str:
+    """Clean 4-row horizontal spec sheet with real embedded brand icons (no nested box clutter)."""
     t = THEMES[mode]
-    out = []
-    max_right = card_x + 418
-    for row_idx, row in enumerate(rows):
-        x = card_x + 24
-        y = y_start + row_idx * 42
-        for col_idx, (icon_key, label) in enumerate(row):
-            w = max(72, int(42 + len(label) * 6.7))
-            assert x + w <= max_right, f"Pill '{label}' overflows card ({x + w} > {max_right})"
-            uid = f"q{quad_idx}r{row_idx}c{col_idx}"
-            icon_svg = embed_brand_icon(icon_key, x + 10, y + 7, 16, mode, uid)
-            out.append(
-                f'<rect x="{x}" y="{y}" width="{w}" height="30" rx="8" '
-                f'fill="{t["pill_bg"]}" stroke="{t["pill_border"]}" stroke-width="1" />\n'
-                f'  {icon_svg}\n'
-                f'  <text x="{x + 32}" y="{y + 19}" fill="{t["pill_text"]}" '
-                f'font-family="{FONT_SANS}" font-size="11.5" font-weight="500">{escape(label)}</text>'
-            )
-            x += w + 8
-    return "\n  ".join(out)
-
-
-def build_stack_bento(mode: str) -> str:
-    t = THEMES[mode]
-    quads = [
+    rows = [
         (
-            0,
-            0,
             "layout",
-            "FRONTEND & UI",
+            "Frontend",
             [
-                [("typescript", "TypeScript"), ("nextjs", "Next.js"), ("react", "React")],
-                [("tailwindcss", "Tailwind"), ("shadcnui", "Shadcn UI"), ("materialui", "Material UI")],
+                ("typescript", "TypeScript"),
+                ("nextjs", "Next.js"),
+                ("react", "React"),
+                ("tailwindcss", "Tailwind"),
+                ("shadcnui", "Shadcn UI"),
+                ("materialui", "MUI"),
             ],
         ),
         (
-            460,
-            0,
             "server",
-            "BACKEND & APIS",
+            "Backend",
             [
-                [("nestjs", "NestJS"), ("nodejs", "Node.js"), ("express", "Express")],
-                [("fastify", "Fastify"), ("graphql", "GraphQL"), ("webhook", "Webhooks")],
+                ("nestjs", "NestJS"),
+                ("nodejs", "Node.js"),
+                ("express", "Express"),
+                ("fastify", "Fastify"),
+                ("graphql", "GraphQL"),
+                ("webhook", "Webhooks"),
             ],
         ),
         (
-            0,
-            174,
             "database",
-            "DATABASES & ORMS",
+            "Databases",
             [
-                [("postgresql", "PostgreSQL"), ("mysql", "MySQL"), ("mongodb", "MongoDB"), ("redis", "Redis")],
-                [("prisma", "Prisma"), ("drizzle", "Drizzle ORM"), ("typeorm", "TypeORM")],
+                ("postgresql", "PostgreSQL"),
+                ("mysql", "MySQL"),
+                ("mongodb", "MongoDB"),
+                ("redis", "Redis"),
+                ("prisma", "Prisma"),
+                ("drizzle", "Drizzle"),
+                ("typeorm", "TypeORM"),
             ],
         ),
         (
-            460,
-            174,
             "cloud",
-            "DEVOPS & DELIVERY",
+            "DevOps",
             [
-                [("docker", "Docker"), ("nginx", "Nginx"), ("githubactions", "Actions")],
-                [("vercel", "Vercel"), ("digitalocean", "DigitalOcean"), ("git", "Git")],
+                ("docker", "Docker"),
+                ("nginx", "Nginx"),
+                ("githubactions", "Actions"),
+                ("vercel", "Vercel"),
+                ("digitalocean", "DigitalOcean"),
+                ("git", "Git"),
             ],
         ),
     ]
 
-    blocks = []
-    for idx, (x, y, cat_icon, title, rows) in enumerate(quads):
-        cat_svg = ui_icon_svg(cat_icon, x + 29, y + 25, 14, t["icon_stroke"], 1.8)
-        pills = render_icon_pill_rows(rows, x, y + 66, mode, idx)
+    row_h = 74
+    total_h = row_h * len(rows)
+    blocks = [
+        f'<rect x="0.5" y="0.5" width="899" height="{total_h - 1}" rx="14" fill="{t["card"]}" stroke="{t["border"]}" stroke-width="1" />',
+        f'<line x1="176" y1="16" x2="176" y2="{total_h - 16}" stroke="{t["divider"]}" stroke-width="1" />',
+    ]
+
+    for r_idx, (cat_icon, cat_label, items) in enumerate(rows):
+        y_top = r_idx * row_h
+        y_mid = y_top + row_h / 2
+
+        if r_idx > 0:
+            blocks.append(f'<line x1="20" y1="{y_top}" x2="880" y2="{y_top}" stroke="{t["divider"]}" stroke-width="1" />')
+
+        # Left category cell
         blocks.append(
-            f'<rect x="{x + 0.5}" y="{y + 0.5}" width="439" height="155" rx="14" '
-            f'fill="{t["card"]}" stroke="{t["border"]}" stroke-width="1" />\n'
-            f'  <rect x="{x + 24}" y="{y + 20}" width="24" height="24" rx="6" '
-            f'fill="{t["icon_box_bg"]}" stroke="{t["icon_box_border"]}" stroke-width="1" />\n'
-            f'  {cat_svg}\n'
-            f'  <text x="{x + 58}" y="{y + 36}" fill="{t["text"]}" font-family="{FONT_MONO}" '
-            f'font-size="11" font-weight="600" letter-spacing="0.9">{escape(title)}</text>\n'
-            f'  <line x1="{x + 24}" y1="{y + 53}" x2="{x + 416}" y2="{y + 53}" stroke="{t["divider"]}" stroke-width="1" />\n'
-            f'  {pills}'
+            f'<rect x="24" y="{y_mid - 14:.1f}" width="28" height="28" rx="7" '
+            f'fill="{t["icon_box_bg"]}" stroke="{t["icon_box_border"]}" stroke-width="1" />'
         )
+        blocks.append(ui_icon_svg(cat_icon, 31, y_mid - 7, 14, t["icon_stroke"], 1.8))
+        blocks.append(
+            f'<text x="64" y="{y_mid + 4.5:.1f}" fill="{t["text"]}" font-family="{FONT_SANS}" '
+            f'font-size="13" font-weight="600">{escape(cat_label)}</text>'
+        )
+
+        # Right horizontal icon+label items
+        x = 200.0
+        for c_idx, (icon_key, label) in enumerate(items):
+            uid = f"st_r{r_idx}c{c_idx}"
+            blocks.append(embed_brand_icon(icon_key, x, y_mid - 9, 18, mode, uid))
+            blocks.append(
+                f'<text x="{x + 25:.1f}" y="{y_mid + 4.5:.1f}" fill="{t["text"]}" '
+                f'font-family="{FONT_SANS}" font-size="12.5" font-weight="500">{escape(label)}</text>'
+            )
+            step = max(78.0, 26.0 + len(label) * 7.0 + 18.0)
+            x += step
+        assert x - 18.0 <= 886.0, f"Row '{cat_label}' overflowed ({x - 18.0} > 886)"
+
     inner = "\n  ".join(blocks)
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="330" viewBox="0 0 900 330" fill="none">
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="{total_h}" viewBox="0 0 900 {total_h}" fill="none">
   {inner}
 </svg>
 '''
 
 
-def build_principles_bento(mode: str) -> str:
+def build_principles(mode: str) -> str:
+    """3-column x 2-row flat editorial principles grid with generous spacing."""
     t = THEMES[mode]
     cards = [
         (
-            0,
-            0,
             "shield",
-            "Strict Type Safety & Contracts",
-            "End-to-end TypeScript sharing with Zod and class-validator",
-            "enforces runtime validation and clean API contracts.",
+            "Type Safety & Contracts",
+            "End-to-end TypeScript with Zod",
+            "and class-validator enforces strict",
+            "runtime validation at every boundary.",
         ),
         (
-            460,
-            0,
             "zap",
-            "Performance & Rendering",
-            "Next.js Server Components, streaming SSR, and smart caching",
-            "keep client bundles lean and Core Web Vitals fast.",
+            "Rendering Performance",
+            "Next.js Server Components, SSR",
+            "streaming, and caching keep client",
+            "bundles lean and Web Vitals fast.",
         ),
         (
-            0,
-            132,
             "refresh",
-            "Resilient Business Workflows",
-            "Idempotent webhook handlers, atomic DB transactions, and",
-            "background retry queues protect critical state mutations.",
+            "Resilient Workflows",
+            "Idempotent webhook handlers,",
+            "atomic DB transactions, and retry",
+            "queues protect critical state.",
         ),
         (
-            460,
-            132,
             "layers",
-            "Modular Clean Architecture",
-            "Clear boundaries between UI, services, and persistence keep",
-            "domain logic decoupled, readable, testable, and extensible.",
+            "Modular Architecture",
+            "Clean boundaries between UI,",
+            "services, and persistence keep",
+            "domains decoupled and testable.",
         ),
         (
-            0,
-            264,
             "database",
-            "Database & Query Efficiency",
-            "Normalized schemas, strategic indexing, safe Prisma/Drizzle",
-            "migrations, and query profiling prevent N+1 bottlenecks.",
+            "Query Efficiency",
+            "Normalized schemas, strategic",
+            "indexes, Prisma/Drizzle migrations,",
+            "and profiling prevent N+1 issues.",
         ),
         (
-            460,
-            264,
             "terminal",
-            "Observability & Automated Delivery",
-            "Structured logging, predictable error contracts, Dockerized",
-            "builds, and GitHub Actions CI/CD ensure confident releases.",
+            "Automated Delivery",
+            "Structured logs, predictable error",
+            "contracts, Docker builds, and CI/CD",
+            "enable confident, repeatable releases.",
         ),
     ]
 
+    card_w = 288
+    card_h = 152
+    gap_x = 18
+    gap_y = 18
+    total_h = card_h * 2 + gap_y
+
     blocks = []
-    for x, y, icon_name, title, l1, l2 in cards:
-        ic = ui_icon_svg(icon_name, x + 30, y + 26, 16, t["icon_stroke"], 1.8)
+    for idx, (icon_name, title, l1, l2, l3) in enumerate(cards):
+        col = idx % 3
+        row = idx // 3
+        x = col * (card_w + gap_x)
+        y = row * (card_h + gap_y)
+        ic = ui_icon_svg(icon_name, x + 28, y + 26, 16, t["icon_stroke"], 1.8)
         blocks.append(
-            f'<rect x="{x + 0.5}" y="{y + 0.5}" width="439" height="113" rx="14" '
+            f'<rect x="{x + 0.5}" y="{y + 0.5}" width="{card_w - 1}" height="{card_h - 1}" rx="14" '
             f'fill="{t["card"]}" stroke="{t["border"]}" stroke-width="1" />\n'
-            f'  <rect x="{x + 24}" y="{y + 20}" width="28" height="28" rx="8" '
+            f'  <rect x="{x + 22}" y="{y + 20}" width="28" height="28" rx="8" '
             f'fill="{t["icon_box_bg"]}" stroke="{t["icon_box_border"]}" stroke-width="1" />\n'
             f'  {ic}\n'
-            f'  <text x="{x + 64}" y="{y + 39}" fill="{t["text"]}" font-family="{FONT_SANS}" '
-            f'font-size="14.5" font-weight="600">{escape(title)}</text>\n'
-            f'  <text x="{x + 24}" y="{y + 70}" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="12.5">{escape(l1)}</text>\n'
-            f'  <text x="{x + 24}" y="{y + 90}" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="12.5">{escape(l2)}</text>'
+            f'  <text x="{x + 22}" y="{y + 72}" fill="{t["text"]}" font-family="{FONT_SANS}" '
+            f'font-size="14" font-weight="600">{escape(title)}</text>\n'
+            f'  <text x="{x + 22}" y="{y + 96}" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="12">{escape(l1)}</text>\n'
+            f'  <text x="{x + 22}" y="{y + 114}" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="12">{escape(l2)}</text>\n'
+            f'  <text x="{x + 22}" y="{y + 132}" fill="{t["subtext"]}" font-family="{FONT_SANS}" font-size="12">{escape(l3)}</text>'
         )
+
     inner = "\n  ".join(blocks)
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="378" viewBox="0 0 900 378" fill="none">
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="{total_h}" viewBox="0 0 900 {total_h}" fill="none">
   {inner}
 </svg>
 '''
 
 
 def main() -> None:
-    for mode in ("dark", "light"):
-        (ASSETS / f"bento-hero-{mode}.svg").write_text(build_hero_bento(mode), encoding="utf-8")
-        (ASSETS / f"bento-stack-{mode}.svg").write_text(build_stack_bento(mode), encoding="utf-8")
-        (ASSETS / f"bento-principles-{mode}.svg").write_text(build_principles_bento(mode), encoding="utf-8")
+    # Remove old cached bento-*.svg filenames so GitHub camo CDN fetches fresh assets immediately
+    for old in ASSETS.glob("bento-*.svg"):
+        old.unlink()
 
-    print(f"Generated {len(list(ASSETS.glob('bento-*.svg')))} flat minimalist Bento SVGs.")
+    for mode in ("dark", "light"):
+        (ASSETS / f"profile-hero-{mode}.svg").write_text(build_hero(mode), encoding="utf-8")
+        (ASSETS / f"profile-stack-{mode}.svg").write_text(build_stack(mode), encoding="utf-8")
+        (ASSETS / f"profile-principles-{mode}.svg").write_text(build_principles(mode), encoding="utf-8")
+
+    print(f"Generated {len(list(ASSETS.glob('profile-*.svg')))} fresh flat SVG assets.")
 
 
 if __name__ == "__main__":
