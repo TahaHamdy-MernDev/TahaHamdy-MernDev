@@ -102,6 +102,23 @@ UI_ICONS = {
         '<path d="m3.3 7 8.7 5 8.7-5" />'
         '<path d="M12 22V12" />'
     ),
+    "globe": (
+        '<circle cx="12" cy="12" r="10" />'
+        '<line x1="2" y1="12" x2="22" y2="12" />'
+        '<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />'
+    ),
+    "linkedin": (
+        '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />'
+        '<rect x="2" y="9" width="4" height="12" />'
+        '<circle cx="4" cy="4" r="2" />'
+    ),
+    "mail": (
+        '<rect x="2" y="4" width="20" height="16" rx="2" />'
+        '<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />'
+    ),
+    "folder": (
+        '<path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" />'
+    ),
 }
 
 MONOCHROME_ICONS = {"shadcnui", "express", "fastify", "vercel", "prisma"}
@@ -382,17 +399,39 @@ def build_principles(mode: str) -> str:
 '''
 
 
+def build_button(mode: str, icon_name: str, label: str, width: int) -> str:
+    """Renders a crisp rounded flat button pill matching the Bento card palette."""
+    t = THEMES[mode]
+    h = 36
+    ic = ui_icon_svg(icon_name, 16, 10.5, 15, t["icon_stroke"], 1.8)
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{h}" viewBox="0 0 {width} {h}" fill="none">
+  <rect x="0.5" y="0.5" width="{width - 1}" height="{h - 1}" rx="10" fill="{t["card"]}" stroke="{t["border"]}" stroke-width="1" />
+  {ic}
+  <text x="39" y="22.5" fill="{t["text"]}" font-family="{FONT_SANS}" font-size="12.5" font-weight="500">{escape(label)}</text>
+</svg>
+'''
+
+
 def main() -> None:
     # Remove old cached bento-*.svg filenames so GitHub camo CDN fetches fresh assets immediately
     for old in ASSETS.glob("bento-*.svg"):
         old.unlink()
 
+    buttons = [
+        ("portfolio", "globe", "Portfolio", 112),
+        ("linkedin", "linkedin", "LinkedIn", 114),
+        ("email", "mail", "Email", 94),
+        ("repos", "folder", "Repositories", 134),
+    ]
+
     for mode in ("dark", "light"):
         (ASSETS / f"profile-hero-{mode}.svg").write_text(build_hero(mode), encoding="utf-8")
         (ASSETS / f"profile-stack-{mode}.svg").write_text(build_stack(mode), encoding="utf-8")
         (ASSETS / f"profile-principles-{mode}.svg").write_text(build_principles(mode), encoding="utf-8")
+        for slug, icon_name, label, width in buttons:
+            (ASSETS / f"btn-{slug}-{mode}.svg").write_text(build_button(mode, icon_name, label, width), encoding="utf-8")
 
-    print(f"Generated {len(list(ASSETS.glob('profile-*.svg')))} fresh flat SVG assets.")
+    print(f"Generated {len(list(ASSETS.glob('profile-*.svg')))} section SVGs + {len(list(ASSETS.glob('btn-*.svg')))} button SVGs.")
 
 
 if __name__ == "__main__":

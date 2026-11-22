@@ -9,21 +9,7 @@
 <br /><br />
 
 <p align="center">
-  <a href="https://taha-hamdy.vercel.app" target="_blank">
-    <img src="https://img.shields.io/badge/Portfolio-21262d?style=flat-square&logo=vercel&logoColor=e6edf3" alt="Portfolio" />
-  </a>
-  &nbsp;&nbsp;
-  <a href="https://linkedin.com/in/tahahamdy" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-21262d?style=flat-square&logo=linkedin&logoColor=e6edf3" alt="LinkedIn" />
-  </a>
-  &nbsp;&nbsp;
-  <a href="mailto:contact@tahahamdy.dev">
-    <img src="https://img.shields.io/badge/Email-21262d?style=flat-square&logo=gmail&logoColor=e6edf3" alt="Email" />
-  </a>
-  &nbsp;&nbsp;
-  <a href="https://github.com/TahaHamdy-MernDev?tab=repositories" target="_blank">
-    <img src="https://img.shields.io/badge/Repositories-21262d?style=flat-square&logo=github&logoColor=e6edf3" alt="Repositories" />
-  </a>
+  <a href="https://taha-hamdy.vercel.app" target="_blank"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/btn-portfolio-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/btn-portfolio-light.svg" /><img src="./assets/btn-portfolio-dark.svg" alt="Portfolio" /></picture></a>&nbsp;&nbsp;<a href="https://linkedin.com/in/tahahamdy" target="_blank"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/btn-linkedin-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/btn-linkedin-light.svg" /><img src="./assets/btn-linkedin-dark.svg" alt="LinkedIn" /></picture></a>&nbsp;&nbsp;<a href="mailto:contact@tahahamdy.dev"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/btn-email-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/btn-email-light.svg" /><img src="./assets/btn-email-dark.svg" alt="Email" /></picture></a>&nbsp;&nbsp;<a href="https://github.com/TahaHamdy-MernDev?tab=repositories" target="_blank"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/btn-repos-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/btn-repos-light.svg" /><img src="./assets/btn-repos-dark.svg" alt="Repositories" /></picture></a>
 </p>
 
 </div>
