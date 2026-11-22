@@ -17,46 +17,6 @@
 
 <br />
 
-### Featured Projects
-
-<p align="center">
-  <a href="https://github.com/TahaHamdy-MernDev/nestjs-forge-vs-extension" target="_blank">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="./assets/project-nestjs-forge-dark.svg" />
-      <source media="(prefers-color-scheme: light)" srcset="./assets/project-nestjs-forge-light.svg" />
-      <img alt="NestJS Forge — VS Code Extension" src="./assets/project-nestjs-forge-dark.svg" width="48.8%" />
-    </picture>
-  </a>
-  &nbsp;&nbsp;
-  <a href="https://github.com/TahaHamdy-MernDev/admin-panel" target="_blank">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="./assets/project-admin-panel-dark.svg" />
-      <source media="(prefers-color-scheme: light)" srcset="./assets/project-admin-panel-light.svg" />
-      <img alt="Admin Panel — Operations Dashboard" src="./assets/project-admin-panel-dark.svg" width="48.8%" />
-    </picture>
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/TahaHamdy-MernDev/buy_from_egypt" target="_blank">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="./assets/project-buy-from-egypt-dark.svg" />
-      <source media="(prefers-color-scheme: light)" srcset="./assets/project-buy-from-egypt-light.svg" />
-      <img alt="Buy From Egypt — E-Commerce Platform" src="./assets/project-buy-from-egypt-dark.svg" width="48.8%" />
-    </picture>
-  </a>
-  &nbsp;&nbsp;
-  <a href="https://github.com/TahaHamdy-MernDev/qwafel" target="_blank">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="./assets/project-qwafel-dark.svg" />
-      <source media="(prefers-color-scheme: light)" srcset="./assets/project-qwafel-light.svg" />
-      <img alt="Qwafel — Web Platform" src="./assets/project-qwafel-dark.svg" width="48.8%" />
-    </picture>
-  </a>
-</p>
-
-<br />
-
 ### Core Tech Stack
 
 <div align="center">
