@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="200" viewBox="0 0 880 200" fill="none">
+  <defs>
+    <linearGradient id="bg-dark" x1="0" y1="0" x2="880" y2="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0d1117" />
+      <stop offset="55%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#171e31" />
+    </linearGradient>
+    <radialGradient id="glow-dark" cx="85%" cy="20%" r="55%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0" />
+    </radialGradient>
+    <pattern id="grid-dark" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#30363d" stroke-width="0.6" stroke-opacity="0.45" />
+    </pattern>
+  </defs>
+
+  <rect width="880" height="200" rx="14" fill="url(#bg-dark)" />
+  <rect width="880" height="200" rx="14" fill="url(#grid-dark)" />
+  <rect width="880" height="200" rx="14" fill="url(#glow-dark)" />
+  <rect x="0.75" y="0.75" width="878.5" height="198.5" rx="13.25" stroke="#30363d" stroke-width="1.5" />
+
+  <!-- Status Pill -->
+  <rect x="36" y="32" width="256" height="26" rx="13" fill="#064e3b" fill-opacity="0.45" stroke="#10b981" stroke-opacity="0.4" stroke-width="1" />
+  <circle cx="52" cy="45" r="4" fill="#34d399" />
+  <text x="64" y="49" fill="#6ee7b7" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" letter-spacing="0.4">OPEN TO MID-LEVEL FULL-STACK ROLES</text>
+
+  <!-- Main Heading -->
+  <text x="36" y="106" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="36" font-weight="700" letter-spacing="-0.6">Taha Hamdy</text>
+
+  <!-- Subtitle -->
+  <text x="36" y="136" fill="#9ca3af" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15.5" font-weight="400">Mid-Level Full-Stack Software Engineer  ·  Next.js, NestJS &amp; Scalable Web Systems</text>
+
+  <!-- Focus Line -->
+  <text x="36" y="164" fill="#6e7681" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12.5">TypeScript  /  PostgreSQL  /  Prisma  /  Docker  /  Event-Driven APIs</text>
+
+  <!-- Right-side Bento Spec Card -->
+  <rect x="652" y="34" width="192" height="132" rx="10" fill="#161b22" fill-opacity="0.88" stroke="#30363d" stroke-width="1" />
+  <text x="670" y="60" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="10.5" font-weight="600" letter-spacing="1">CORE FOCUS</text>
+  <line x1="670" y1="70" x2="826" y2="70" stroke="#21262d" stroke-width="1" />
+  <text x="670" y="92" fill="#e6edf3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="500">Multi-Tenant SaaS</text>
+  <text x="670" y="114" fill="#e6edf3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="500">Commerce &amp; Logistics</text>
+  <text x="670" y="136" fill="#e6edf3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="500">Data-Dense Dashboards</text>
+  <text x="670" y="156" fill="#818cf8" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11">Cairo, EG · UTC+2</text>
+</svg>
