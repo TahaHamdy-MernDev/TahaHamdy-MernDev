@@ -8,23 +8,10 @@
 
 <br /><br />
 
-<p align="center">
-  <a href="https://taha-hamdy.vercel.app" target="_blank">
-    <img src="https://img.shields.io/badge/Portfolio-161b22?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio" />
-  </a>
-  &nbsp;
-  <a href="https://linkedin.com/in/tahahamdy" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-161b22?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-  </a>
-  &nbsp;
-  <a href="mailto:contact@tahahamdy.dev">
-    <img src="https://img.shields.io/badge/Email-161b22?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
-  </a>
-  &nbsp;
-  <a href="https://github.com/TahaHamdy-MernDev?tab=repositories" target="_blank">
-    <img src="https://img.shields.io/badge/Repositories-161b22?style=for-the-badge&logo=github&logoColor=white" alt="Repositories" />
-  </a>
-</p>
+<a href="https://taha-hamdy.vercel.app" target="_blank"><img src="https://img.shields.io/badge/Portfolio-2f81f7?style=flat-square&logo=vercel&logoColor=white" alt="Portfolio" /></a>
+<a href="https://linkedin.com/in/tahahamdy" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0a66c2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+<a href="mailto:contact@tahahamdy.dev"><img src="https://img.shields.io/badge/Email-3fb950?style=flat-square&logo=gmail&logoColor=white" alt="Email" /></a>
+<a href="https://github.com/TahaHamdy-MernDev?tab=repositories"><img src="https://img.shields.io/badge/Repositories-a371f7?style=flat-square&logo=github&logoColor=white" alt="Repositories" /></a>
 
 </div>
 
@@ -98,38 +85,18 @@
 
 <br />
 
-### Activity & Telemetry
-
-<div align="center">
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/TahaHamdy-MernDev/TahaHamdy-MernDev/output/profile-night-green.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/TahaHamdy-MernDev/TahaHamdy-MernDev/output/profile-green.svg" />
-  <img alt="3D Isometric Contribution Graph" src="https://raw.githubusercontent.com/TahaHamdy-MernDev/TahaHamdy-MernDev/output/profile-night-green.svg" width="100%" />
-</picture>
-
-<br /><br />
+### Activity
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com/?user=TahaHamdy-MernDev&theme=github-dark-blue&hide_border=false&border=30363d&border_radius=12&background=161b22" />
-    <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com/?user=TahaHamdy-MernDev&theme=default&hide_border=false&border=d0d7de&border_radius=12&background=f6f8fa" />
-    <img src="https://streak-stats.demolab.com/?user=TahaHamdy-MernDev&theme=github-dark-blue&hide_border=false&border=30363d&border_radius=12&background=161b22" alt="Taha Hamdy GitHub Streak" height="168" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com/?user=TahaHamdy-MernDev&background=161b22&border=30363d&ring=2f81f7&fire=f0883e&currStreakLabel=2f81f7&sideLabels=8b949e&currStreakNum=e6edf3&sideNums=e6edf3&dates=8b949e&border_radius=16" />
+    <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com/?user=TahaHamdy-MernDev&background=f6f8fa&border=d0d7de&ring=0969da&fire=bc4c00&currStreakLabel=0969da&sideLabels=656d76&currStreakNum=1f2328&sideNums=1f2328&dates=656d76&border_radius=16" />
+    <img src="https://streak-stats.demolab.com/?user=TahaHamdy-MernDev&background=161b22&border=30363d&ring=2f81f7&fire=f0883e&currStreakLabel=2f81f7&sideLabels=8b949e&currStreakNum=e6edf3&sideNums=e6edf3&dates=8b949e&border_radius=16" alt="GitHub Streak" height="168" />
   </picture>
   &nbsp;&nbsp;
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.shion.dev/api/top-langs/?username=TahaHamdy-MernDev&theme=github_dark&bg_color=161b22&border_color=30363d&border_radius=12&include_all_commits=true&count_private=true&layout=compact&hide=html,tex,css,scss&langs_count=6" />
-    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.shion.dev/api/top-langs/?username=TahaHamdy-MernDev&theme=default&bg_color=f6f8fa&border_color=d0d7de&border_radius=12&include_all_commits=true&count_private=true&layout=compact&hide=html,tex,css,scss&langs_count=6" />
-    <img src="https://github-readme-stats.shion.dev/api/top-langs/?username=TahaHamdy-MernDev&theme=github_dark&bg_color=161b22&border_color=30363d&border_radius=12&include_all_commits=true&count_private=true&layout=compact&hide=html,tex,css,scss&langs_count=6" alt="Taha Hamdy Top Languages" height="168" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.shion.dev/api/top-langs/?username=TahaHamdy-MernDev&bg_color=161b22&border_color=30363d&title_color=e6edf3&text_color=8b949e&border_radius=16&include_all_commits=true&count_private=true&layout=compact&hide=html,tex,css,scss&langs_count=6" />
+    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.shion.dev/api/top-langs/?username=TahaHamdy-MernDev&bg_color=f6f8fa&border_color=d0d7de&title_color=1f2328&text_color=656d76&border_radius=16&include_all_commits=true&count_private=true&layout=compact&hide=html,tex,css,scss&langs_count=6" />
+    <img src="https://github-readme-stats.shion.dev/api/top-langs/?username=TahaHamdy-MernDev&bg_color=161b22&border_color=30363d&title_color=e6edf3&text_color=8b949e&border_radius=16&include_all_commits=true&count_private=true&layout=compact&hide=html,tex,css,scss&langs_count=6" alt="Top Languages" height="168" />
   </picture>
 </p>
-
-</div>
-
-<br />
-
-<div align="center">
-
-**[Portfolio](https://taha-hamdy.vercel.app)** &nbsp;·&nbsp; **[LinkedIn](https://linkedin.com/in/tahahamdy)** &nbsp;·&nbsp; **[Email](mailto:contact@tahahamdy.dev)** &nbsp;·&nbsp; **[Repositories](https://github.com/TahaHamdy-MernDev?tab=repositories)**
-
-</div>
